@@ -55,8 +55,11 @@ class MapFragment : Fragment() , LocationListener{
             val googleMap = it
 
             markerOptionsCurrentLocation.position(LatLng(markerLatitude, markerLongitude))
-                .title("lat: $markerLatitude/ lon: $markerLongitude")
+                .title("Current Position lat: $markerLatitude/ lon: $markerLongitude")
                 it.addMarker(markerOptionsCurrentLocation)
+
+            it.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(markerLatitude,
+                markerLongitude),8F))
 
             Log.d("TAG", "in map $markerLatitude///$markerLongitude")
 

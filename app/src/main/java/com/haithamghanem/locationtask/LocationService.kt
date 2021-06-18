@@ -78,9 +78,11 @@ class LocationService : Service() {
                     distanceInMeters =  targetLocation.distanceTo(location)
                     Log.d("distance", "onLocationResult: $distanceInMeters")
 
-                    if(distanceInMeters > 0 && distanceInMeters < 3){
+                    if(distanceInMeters > 0 && distanceInMeters < 2){
                         Toast.makeText(this@LocationService, "You arrived", Toast.LENGTH_SHORT).show()
                         HAS_REACHED_DESTINATION = true
+                    }else{
+                        HAS_REACHED_DESTINATION = false
                     }
 
                     MapFragment.markerLatitude = location.latitude
