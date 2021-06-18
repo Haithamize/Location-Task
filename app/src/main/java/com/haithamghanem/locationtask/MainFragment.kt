@@ -1,12 +1,17 @@
 package com.haithamghanem.locationtask
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
 import androidx.work.*
 import com.haithamghanem.locationtask.databinding.FragmentMainBinding
@@ -31,8 +36,19 @@ class MainFragment : Fragment() {
         return view
     }
 
+    private fun getPermissions(){
+        Log.d("permission", "getPermissions: ")
+        if(ActivityCompat.checkSelfPermission(this.requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ){
+            ActivityCompat.requestPermissions(this.requireActivity(), arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION),3)
+            return
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getPermissions()
 
         binding = FragmentMainBinding.bind(view)
         binding.btnGetLocation.setOnClickListener {

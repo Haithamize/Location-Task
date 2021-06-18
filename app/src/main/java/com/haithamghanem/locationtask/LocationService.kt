@@ -1,13 +1,17 @@
 package com.haithamghanem.locationtask
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.Location
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.LatLng
@@ -115,8 +119,9 @@ class LocationService : Service() {
 
 
     //Permissions were taken when we first opened the application
-    @SuppressLint("MissingPermission")
+
     private fun startLocationUpdates() {
+
         fusedLocationClient.requestLocationUpdates(
             locationRequest,
             locationCallback,

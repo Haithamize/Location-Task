@@ -63,37 +63,6 @@ class MapFragment : Fragment() , LocationListener{
 
             Log.d("TAG", "in map $markerLatitude///$markerLongitude")
 
-
-
-
-//            it.setOnMapClickListener {
-//
-//
-//                //hna awl mados 3ayz a3ml marker fa h3ml init lel marker options
-//                val markerOptionsOfCurrentLocation = MarkerOptions()
-//
-//                //b3den lazm agip el posisiton bta3 el marker
-//                markerOptionsOfCurrentLocation.position(it)
-//
-//
-////                //ha7ot el position el lat wl longitude fl eli 3ayz aro7lohom
-////                markerLatitude = it.latitude
-////                markerLongitude = it.longitude
-//
-//
-//                //b3den ha3ml title lel marker bl latitude wl longitude bta3 el makan eli wa2f 3leh
-//                markerOptionsOfCurrentLocation.title("${it.latitude} : ${it.longitude}")
-//
-//                //b3den a3ml remover le kol el markers 3shan lma a3ml zoom el marker el adim yro7 w a7ot marker gded
-//                googleMap.clear()
-//
-//                //b3den a3ml animation 3shan a3ml zoom 3ala el marker
-//                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(it, 10F))
-//
-//                //add another marker in the new position
-//                googleMap.addMarker(markerOptionsOfCurrentLocation)
-//                googleMap.addMarker(markerOptionsTargetLocation)
-//            }
         }
     }
 
